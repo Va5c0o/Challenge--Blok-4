@@ -2,10 +2,13 @@
 include "Includes/database.php";
 include "Includes/functions.php";
 include "header.php";
-include "footer.php";
 
 
-$cottageID = $_GET["cottageID"];
+
+if(isset($_GET["cottageID"])) {
+
+    $cottageID = $_GET["cottageID"];
+}
 
 if($cottageID < 1){
     die('Geen huisje geselecteerd');
@@ -14,6 +17,7 @@ if($cottageID < 1){
 $sql = "SELECT * FROM `cottages` WHERE cottage_id = $cottageID";
 
 $tblCottage = getData($sql, "fetch");
+
 //de programmeur was vergeten om de id van de huisjes van de database te linken aan de php code.
 ?>
 <section>
@@ -29,7 +33,7 @@ $tblCottage = getData($sql, "fetch");
                     <div class="carousel-item active">
                         <img src="Images/<?php echo $tblCottage['cottage_img2']?>" class="d-block w-100" alt="ijmuiden-strand.jpg"><!--src en alt dynamisch maken -->
                     </div>
-                    <div class="carousel-item">
+                    <div class="carousel-item==--
                         <img src="Images/<?php echo $tblCottage['cottage_img3']?>" class="d-block w-100" alt="ijmuiden-hottub.jpg"><!--src en alt dynamisch maken -->
                     </div>
                     <div class="carousel-item">
@@ -48,7 +52,7 @@ $tblCottage = getData($sql, "fetch");
             </div>
             <div class="col">
             <h5>Omschrijving</h5>
-            <p><?php echo $tblCottage['cottage_descr'] ?></p>
+            <p><?php echo $tblCottage['cottage_descr']?></p>
             </div>
         </div>
     </div>
@@ -57,7 +61,9 @@ $tblCottage = getData($sql, "fetch");
     <div class="container mt-4 bg-light">
         <div class="row  px-4 py-4">
             <div class="col">
-            faciliteiten (aparte file in includes)
+            <?php
+            include "facilities.php";
+            ?>
             </div>
 
             <div class="col">
@@ -69,8 +75,14 @@ $tblCottage = getData($sql, "fetch");
             </div>
 
             <div class="col">
-                additions (aparte file in includes)
+                <?php
+                include "additions.php"   
+                ?>
             </div>
+            <?php
+            include "calculateprice.php";
+            include "footer.php";
+            ?>
         </div>
     </div>
 </section>

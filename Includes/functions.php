@@ -30,7 +30,7 @@ function getData($sql, $method){
 //gebruik deze functie voor het juist formateren van nummers
 function FormatNumber($num){
 
-    number_format(number,decimals,decimalpoint,separator);
+    // number_format(number,decimals,decimalpoint,separator);
 
     //maak de functie af
     return $num;

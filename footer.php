@@ -1,7 +1,7 @@
 <!-- footer -->
 <section>
     <div class="container">
-        dit is de footer, zet hier wat leuks neer...
+        Iets leuks
     </div>
 </section>
 

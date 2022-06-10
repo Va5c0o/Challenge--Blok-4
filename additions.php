@@ -1,6 +1,6 @@
 <?php
 //Extra's die je kan huren
-$tblAdditions = getData("", "fetchAll");
+$tblAdditions = getData("SELECT * FROM `additions`", "fetchAll");
 ?>
                 <h4>Extra's (per persoon per dag)</h4>
                     <ul class="list-group list-group-flush">
